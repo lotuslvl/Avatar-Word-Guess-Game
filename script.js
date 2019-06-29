@@ -47,7 +47,10 @@
      //display lossses
      //call resetVariablesandUIFunction
 
- $(document).ready(function() {
+var guessesLeft = 20;
+
+
+$(document).ready(function() {
 
 function setWord() {
 
@@ -58,24 +61,53 @@ function setWord() {
     //display that word in the html
     $("#userWord").text(randomword);
     //return the word selected
+    $("#guessesLeft").text(guessesLeft);
+
     return randomword
 
 };
 //pick a word and display it
-setWord(); 
+
 //set global var equal to that word
 
 
 //this function sets the letter count in the html
 function setLetterCount() {
-
-    var correctAnswer= setWord();
     var numofletters= correctAnswer.length;
-    alert(correctAnswer);
     $("#lettersLeft").text(numofletters);
+    return numofletters
 
 };
 
+
+function setwordArray() {
+    var wordArray=[];
+    for (i=0;i<=correctAnswer.length;i++) {
+    var templetter=correctAnswer.split("", i);
+    wordArray.push(templetter);
+    
+    return wordArray
+
+    }
+
+};
+
+
+setWord(); 
+var correctAnswer= setWord();
 setLetterCount(); 
+var lettersLeft= setLetterCount();
+setwordArray(); 
+var wordArray= setwordArray();
+
 
 });
+
+
+$(document).keyup(function(key) {
+
+    guessesLeft= guessesLeft-1;
+     $("#guessesLeft").text(guessesLeft);
+
+  });
+
