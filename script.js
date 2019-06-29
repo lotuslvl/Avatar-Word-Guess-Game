@@ -48,7 +48,8 @@
      //call resetVariablesandUIFunction
 
 var guessesLeft = 20;
-
+var lettersLeft;
+var lettersArray=[];
 
 $(document).ready(function() {
 
@@ -63,13 +64,14 @@ function setWord() {
     //return the word selected
     $("#guessesLeft").text(guessesLeft);
 
-    return randomword
+    return randomword;
 
 };
 //pick a word and display it
 
 //set global var equal to that word
 
+var correctAnswer= setWord();
 
 //this function sets the letter count in the html
 function setLetterCount() {
@@ -83,31 +85,48 @@ function setLetterCount() {
 function setwordArray() {
     var wordArray=[];
     for (i=0;i<=correctAnswer.length;i++) {
-    var templetter=correctAnswer.split("", i);
+    var templetter=correctAnswer.charAt(i);
     wordArray.push(templetter);
-    
-    return wordArray
+
+   
 
     }
-
+   
+    return wordArray
+  
 };
 
 
 setWord(); 
-var correctAnswer= setWord();
+
 setLetterCount(); 
-var lettersLeft= setLetterCount();
+lettersLeft= setLetterCount();
 setwordArray(); 
-var wordArray= setwordArray();
+lettersArray= setwordArray();
+
 
 
 });
 
 
-$(document).keyup(function(key) {
+$(document).keyup(function(e) {
 
     guessesLeft= guessesLeft-1;
-     $("#guessesLeft").text(guessesLeft);
+    $("#guessesLeft").text(guessesLeft);
+    var keyclicked= (String.fromCharCode(e.which)).toLowerCase();
+    var letterinword;
 
+    for (var i=0; i<=lettersArray.length ;i++) {
+    
+        letterinword=lettersArray[i];
+
+        if(keyclicked==letterinword) {
+            alert(letterinword);
+            alert(keyclicked);
+        }
+
+
+    }
+ 
   });
 
