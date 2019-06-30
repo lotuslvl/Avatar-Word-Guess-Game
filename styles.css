@@ -1,0 +1,15 @@
+.space {
+text-decoration:underline;
+
+}
+
+.letter {
+
+    float:left;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+#lettersUsed1 {
+
+    clear:both;
+}
