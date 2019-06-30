@@ -7,10 +7,35 @@ var guessesremaining=0;
 var lettersused=0;
 var wordArray=[];
 var clickedkey="";
+var lettersFound=0;
+var wins= 0;
+var losses=0;
 
 
 $(document).ready(function() {
 
+
+//resetvariables and startoverfunctions
+function resetGame() {
+
+    wordbank= ["momo", "nation", "spirits", "bending", "tribe", "nomads", "adventure", "boomerang","avatar","healer"];
+    selectedword="";
+    selectedwordlength=0;
+    numofblanks=0;
+    guessesremaining=0;
+    lettersused=0;
+    wordArray=[];
+    clickedkey="";
+    lettersFound=0;;
+
+    $("#blanks").text("");
+    $("#lettersUsed").text(" ");
+
+    setWord();
+    setBlanks();
+    setGuesses();
+    setwordArray();
+};
 
 
 //pick a word form an array, get the length and return that word
@@ -53,23 +78,51 @@ setBlanks();
 setGuesses();
 setwordArray();
 
-
+//when document detects key press
 $(document).keyup(function(e) {
-
+    //get the key that was clicked and make it a string
     clickedkey = (String.fromCharCode(e.which)).toLowerCase();
-    var indexinarray=-1; 
     
+    //add key string value to the list of guesses on screen
+    $("#lettersUsed").append(clickedkey+" ");
     
-
+    //decrease number of guesses
+    guessesremaining=guessesremaining-1; 
+    $("#guessesLeft").text(guessesremaining);
+    
+    //go through each letter in the word array
     for(var i=0; i <= wordArray.length;i++) {
 
         var letterinarray=wordArray[i];
         indexinarray=i;
-
+        //if the word in the array is quivelent to the clicked key
         if(clickedkey===letterinarray) {
             
-            
-            $(".letter").text(clickedkey);
+            //enter the clicked key string into the space on the screen
+            //here I am using the id I set above to target the correct div
+            $("#let"+ i).text(clickedkey);
+            //add one to letters in the word I have found
+            lettersFound=lettersFound+1;
+                      
+            //check for win condition
+
+            if(lettersFound===numofblanks){
+                alert("You won!The answer was " +selectedword +".Play again!")
+                wins=wins+1;
+                $("#winCount").text(wins);
+                //reset game
+                resetGame();
+
+            }
+
+        }
+        //check for lose condition
+        else if (guessesremaining===0){
+            alert("Sorry friend. You lose!")
+            losses=losses+1;
+            $("#lossCount").text(losses);
+            //reset game
+            resetGame();
 
         }
 
