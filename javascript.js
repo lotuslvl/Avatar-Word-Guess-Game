@@ -10,10 +10,12 @@ var clickedkey="";
 var lettersFound=0;
 var wins= 0;
 var losses=0;
+var musicPlayed=0;
 
 
 $(document).ready(function() {
-
+   //first things first...let's get some tunes up in here.
+   
 
 //resetvariables and startoverfunctions
 function resetGame() {
@@ -80,6 +82,13 @@ setwordArray();
 
 //when document detects key press
 $(document).keyup(function(e) {
+    
+   if (musicPlayed==0) {
+    $("#my_audio").get(0).play();
+    musicPlayed=musicPlayed+1;
+
+   }
+
     //get the key that was clicked and make it a string
     clickedkey = (String.fromCharCode(e.which)).toLowerCase();
     
@@ -106,8 +115,8 @@ $(document).keyup(function(e) {
                       
             //check for win condition
 
-            if(lettersFound===numofblanks){
-                alert("You won!The answer was " +selectedword +".Play again!")
+            if(lettersFound==selectedwordlength){
+                alert("You won! The answer was " +selectedword +".Play again!")
                 wins=wins+1;
                 $("#winCount").text(wins);
                 //reset game

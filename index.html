@@ -8,23 +8,34 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script type="text/javascript" src="javascript.js"></script>
-  
+    <link href="https://fonts.googleapis.com/css?family=Khand|Montserrat&display=swap" rel="stylesheet">
   </head>
 
   <body>
-   <container>
-    <h3> Press any key to get started! </h3>
-       <div><p>Your Word:</p> <div id="blanks"> </div> </div> <div>
-    
-      <div id="lettersUsed1"> Guesses: <div id="lettersUsed">  </div> </div>
-    
-      <div> Guesses Remaining: <div id="guessesLeft"> # </div> </div>
-    
-      <p> Wins: <div id="winCount"> # </div> </p>
-    
-      <p> Losses: <div id="lossCount"> # </div> </p>
+   <div id="left">
 
-  </container>
+      <audio id="my_audio" src="assets\audio_file.mp3"></audio>
+      
+      
+      <div class="card card-body" id="firstcard"><h2> Avatar the Last Airbender Word Guess Game </h2> <p>Press any key to get started.</p></div>
+       <div class="card card-body"><h3>Your Word:</h3> <div id="blanks"> </div> </div> <div>
+
+      <div class= "card card-body" id="lettersUsed1"><h3> Guesses:</h3>  <div id="lettersUsed">  </div> </div>
+    
+      <div class= "card card-body"> <h3>Guesses Remaining:</h3> <div id="guessesLeft"> # </div> </div>
+    
+      <div class= "card card-body"> <h3>Wins:</h3><div id="winCount"> # </div> </div>
+    
+      <div class= "card card-body"> <h3>Losses:</h3> <div id="lossCount"> # </div> </div>
+      
+      
+       </div>
+
+      </div>
+       <div id="right">
+       <img id="aangpic" src="assets\aang.png" alt="aang">
+      </div>
+  
   </body>
 
   

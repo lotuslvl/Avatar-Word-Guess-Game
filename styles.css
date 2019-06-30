@@ -1,8 +1,3 @@
-.space {
-text-decoration:underline;
-
-}
-
 .letter {
 
     float:left;
@@ -12,4 +7,49 @@ text-decoration:underline;
 #lettersUsed1 {
 
     clear:both;
+}
+
+.card {
+    font-size:24px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+    margin-left:10%;
+    
+    }
+
+    #firstcard {
+        margin-top:50px;
+        
+        }
+
+        h2 {
+
+            font-family: 'Khand', sans-serif;
+            font-size: 40px;
+            color: rgb(20, 114, 202);
+        }
+
+img {
+    
+    margin-right:30px;
+    margin-top: 20%;
+    float:right;
+    width:900px;
+    z-index:-100;
+
+
+}
+
+#left {
+    width:50%;
+    float:left;
+
+
+}
+
+#right {
+    width:50%;
+    float:right;
+
+
 }
