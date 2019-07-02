@@ -101,7 +101,7 @@ $(document).keyup(function(e) {
     
     //go through each letter in the word array
     for(var i=0; i <= wordArray.length;i++) {
-
+        var node = document.getElementById('blanks');
         var letterinarray=wordArray[i];
         indexinarray=i;
         //if the word in the array is quivelent to the clicked key
@@ -115,8 +115,8 @@ $(document).keyup(function(e) {
                       
             //check for win condition
 
-            if(lettersFound==selectedwordlength){
-                alert("You won! The answer was " +selectedword +".Play again!")
+            if(node.textContent===selectedword){
+                alert("You won!The answer was " +selectedword +".Play again!")
                 wins=wins+1;
                 $("#winCount").text(wins);
                 //reset game
